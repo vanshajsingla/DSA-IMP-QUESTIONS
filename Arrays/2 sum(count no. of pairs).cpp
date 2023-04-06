@@ -41,12 +41,12 @@ int pairSum(int *arr, int n, int num)
                 c2++;
                 j--;
             }
-            ///////// if all elements which sum to target are same (E.g. 2 2 2 2)
+            ///////// for repeating elements if both elements which sum to target are same (E.g.target=4,arr={1,2,2,2,2,5})
             if(i==j)
             {
             c=c+c1*(c1+1)/2;   
             }
-            
+            ///// for repeating elements but  if both elements which sum to target are different (E.g.target=5,arr={1,2,2,3,3,3,4} or target=6,arr={1,2,2,3,4,4,4})
             else if(c1!=0 || c2!=0)
             {
                 c=c+(c1+1)*(c2+1);
