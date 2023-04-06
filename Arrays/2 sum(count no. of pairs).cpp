@@ -15,7 +15,7 @@ int pairSum(int *arr, int n, int num)
                 count++;
         }
     }
-   return count; //Write your code here
+   return count; 
 }
 */
 /////////////// time complexity : O(nlogn)
