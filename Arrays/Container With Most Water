@@ -1,0 +1,34 @@
+//link: https://leetcode.com/problems/container-with-most-water
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        ////////////////////////////O(n^2) approach (TLE)
+        // int n=height.size(),maxArea=INT_MIN,area=0;
+        // for(int i=0;i<n;i++)
+        // {
+        //     for(int j=i+1;j<n;j++)
+        //     {
+        //         area=min(height[i],height[j])*(j-i);
+        //         if(area>maxArea)
+        //             maxArea=area;
+        //     }
+        // }
+        // return maxArea;
+        ////////////////////////////O(n) approach (2 pointer)
+        // we are decreasing width.So, to increase the area we must have higher height in next iteration
+        // Hence, we retain maximum height & decrease the width 
+        int n=height.size(),maxArea=INT_MIN,area=0;
+        int i=0,j=n-1;
+        while(i<j)
+        {
+            area=min(height[i],height[j])*(j-i);
+                if(area>maxArea)
+                    maxArea=area;
+            if(height[i]<=height[j])
+                i++;
+            else
+                j--;
+        }
+        return maxArea;
+    }
+};
